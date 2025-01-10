@@ -1,7 +1,20 @@
 {
     "name": "webvelopers/auth",
     "description": "Webvelopers Auth",
+    "keywords": [
+        "laravel",
+        "auth"
+    ],
+    "authors": [
+        {
+            "name": "Webmaster of Webvelopers",
+            "email": "webmaster@webvelopers.com"
+        }
+    ],
     "license": "MIT",
+    "require": {
+        "laravel/fortify": "^1.25"
+    },
     "autoload": {
         "psr-4": {
             "Webvelopers\\Auth\\": "src/"
@@ -9,15 +22,10 @@
     },
     "extra": {
         "laravel": {
-            "providers": ["Webvelopers\\Auth\\AuthServiceProvider"]
+            "providers": [
+                "Webvelopers\\Auth\\AuthServiceProvider"
+            ]
         }
     },
-    "authors": [
-        {
-            "name": "Webmaster of Webvelopers",
-            "email": "webmaster@webvelopers.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {}
+    "minimum-stability": "dev"
 }
