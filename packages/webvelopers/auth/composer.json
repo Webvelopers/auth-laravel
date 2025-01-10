@@ -1,0 +1,23 @@
+{
+    "name": "webvelopers/auth",
+    "description": "Webvelopers Auth",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Webvelopers\\Auth\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": ["Webvelopers\\Auth\\AuthServiceProvider"]
+        }
+    },
+    "authors": [
+        {
+            "name": "Webmaster of Webvelopers",
+            "email": "webmaster@webvelopers.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

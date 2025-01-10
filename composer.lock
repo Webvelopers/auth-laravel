@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "626b9e7ddd47fb7eff9aaa53cce0c9ad",
+    "content-hash": "9d170c7b6680cd7e156017adb4e45e9f",
     "packages": [
         {
             "name": "brick/math",
@@ -5796,6 +5796,42 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "webvelopers/auth",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/webvelopers/auth",
+                "reference": "a9dbe7f1de2871402465f2c90425697836cb3fd9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Webvelopers\\Auth\\AuthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webvelopers\\Auth\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Webmaster of Webvelopers",
+                    "email": "webmaster@webvelopers.com"
+                }
+            ],
+            "description": "Webvelopers Auth",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         }
     ],
     "packages-dev": [
@@ -8076,7 +8112,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "webvelopers/auth": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
