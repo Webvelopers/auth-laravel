@@ -5,11 +5,11 @@ namespace Webvelopers\Auth\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class ForgetPasswordController extends Controller
 {
     public function create()
     {
-        return view('auth/login');
+        return view('webvelopers-auth::auth.forget-password');
     }
 
     public function store(Request $request) {}

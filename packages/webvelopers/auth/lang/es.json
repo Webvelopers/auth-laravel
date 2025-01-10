@@ -1,4 +1,15 @@
 {
-    "Log In": "Iniciar Sesión",
-    "Register": "Regístrate"
+    "Sign In": "Iniciar Sesión",
+    "Log in to your account": "Iniciar sesión con tu cuenta",
+    "Enter your credentials to access your account.": "Ingresa tus credenciales para acceder a tu cuenta.",
+    "Email": "Correo electrónico",
+    "user@mail.com": "usuario@correo.com",
+    "Password": "Contraseña",
+    "Remember me": "Recuérdame",
+    "Forgot password?": "¿Olvidaste tu contraseña?",
+    "Don't have an account yet?": "¿Aún no tienes una cuenta?",
+
+    "Sign Up": "Regístrate",
+
+    "Forget Password": "Resetaer Contraseña"
 }

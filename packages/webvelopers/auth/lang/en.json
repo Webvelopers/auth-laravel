@@ -1,4 +1,15 @@
 {
-    "Log In": "Log In",
-    "Register": "Register"
+    "Sign In": "Log In",
+    "Log in to your account": "Log in to your account",
+    "Enter your credentials to access your account.": "Enter your credentials to access your account.",
+    "Email": "Email",
+    "user@mail.com": "user@mail.com",
+    "Password": "Password",
+    "Remember me": "Remember me",
+    "Forgot password?": "Forgot password?",
+    "Don't have an account yet?": "Don't have an account yet?",
+
+    "Sign Up": "Register",
+
+    "Forget Password": "Password Reset"
 }

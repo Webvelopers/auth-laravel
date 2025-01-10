@@ -12,9 +12,7 @@
         }
     ],
     "license": "MIT",
-    "require": {
-        "laravel/fortify": "^1.25"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
             "Webvelopers\\Auth\\": "src/"
