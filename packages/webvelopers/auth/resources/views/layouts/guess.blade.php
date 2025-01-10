@@ -13,7 +13,11 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     {{-- Styles --}}
-    <script src="{{ asset('../../assets/js/tailwindcss.js') }}"></script>
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+    <script src="https://cdn.tailwindcss.com"></script>
+    @end
     @yield('script')
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
 </head>
