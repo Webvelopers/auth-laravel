@@ -11,5 +11,8 @@
 
     "Sign Up": "Regístrate",
 
-    "Forget Password": "Resetaer Contraseña"
+    "Forget Password": "Resetaer Contraseña",
+    "Forgot your password?": "¿Olvidaste tu contraseña?",
+    "Don't fret! Just type in your email and we will send you a code to reset your password!": "No te preocupes! Solo ingresa tu correo electrónico y nosotros te enviaremos un código de reseteo de contraseña!",
+    "": ""
 }

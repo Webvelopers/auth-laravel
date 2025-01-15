@@ -15,6 +15,7 @@
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
       "bmewburn.vscode-intelephense-client"
+      "bradlc.vscode-tailwindcss"
       "esbenp.prettier-vscode"
       "open-southeners.laravel-pint"
       "porifa.laravel-intelephense"

@@ -24,7 +24,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/webvelopers-auth.php' => config_path('webvelopers-auth.php'),
-        ]);
+            __DIR__.'/../dist' => public_path('vendor/webvelopers/auth'),
+        ], 'webvelopers-auth');
 
         $this->loadJsonTranslationsFrom(__DIR__.'/../lang');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'webvelopers-auth');

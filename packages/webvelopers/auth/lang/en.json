@@ -11,5 +11,8 @@
 
     "Sign Up": "Register",
 
-    "Forget Password": "Password Reset"
+    "Forget Password": "Password Reset",
+    "Forgot your password?": "Forgot your password?",
+    "Don't fret! Just type in your email and we will send you a code to reset your password!": "Don't fret! Just type in your email and we will send you a code to reset your password!",
+    "": ""
 }
