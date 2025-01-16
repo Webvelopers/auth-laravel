@@ -5,13 +5,38 @@ use Webvelopers\Auth\Http\Controllers\SignInController;
 use Webvelopers\Auth\Http\Controllers\SignUpController;
 use Webvelopers\Auth\Http\Controllers\ForgetPasswordController;
 
-Route::get('/home', function () {
-    return redirect(config('webvelopers-auth.routes.home', '/'));
-})->name('home');
+Route::get(
+    config('w-auth.routes.sign-in.path', '/auth/sign-in'),
+    [SignInController::class, 'create']
+);
 
-Route::get('/auth/sign-in', [SignInController::class, 'create'])->name('sign-in.create');
-Route::post('/auth/sign-in', [SignInController::class, 'store'])->name('sign-in.store');
-Route::get('/auth/sign-up', [SignUpController::class, 'create'])->name('sign-up.create');
-Route::post('/auth/sign-up', [SignUpController::class, 'store'])->name('sign-up.store');
-Route::get('/auth/forget-password', [ForgetPasswordController::class, 'create'])->name('forget-password.create');
-Route::post('/auth/forget-password', [ForgetPasswordController::class, 'store'])->name('forget-password.store');
+Route::post(
+    config('w-auth.routes.sign-in.path', '/auth/sign-in'),
+    [SignInController::class, 'store']
+)->name(
+    config('w-auth.routes.sign-in.name', 'auth.sign-in')
+);
+
+Route::get(
+    config('w-auth.routes.sign-up.path', '/auth/sign-up'),
+    [SignUpController::class, 'create']
+);
+
+Route::post(
+    config('w-auth.routes.sign-up.path', '/auth/sign-up'),
+    [SignUpController::class, 'store']
+)->name(
+    config('w-auth.routes.sign-up.name', 'auth.sign-up')
+);
+
+Route::get(
+    config('w-auth.routes.forget-password.path', '/auth/forget-password'),
+    [ForgetPasswordController::class, 'create']
+);
+
+Route::post(
+    config('w-auth.routes.forget-password.path', '/auth/forget-password'),
+    [ForgetPasswordController::class, 'store']
+)->name(
+    config('w-auth.routes.forget-password.name', 'auth.forget-password')
+);

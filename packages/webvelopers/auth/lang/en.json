@@ -1,15 +1,22 @@
 {
-    "Sign In": "Log In",
-    "Log in to your account": "Log in to your account",
-    "Enter your credentials to access your account.": "Enter your credentials to access your account.",
+    "Dashboard": "Dashboard",
+
+    "Sign In": "Sign In",
+    "Welcome Back!": "Welcome Back!",
+    "Sign in to your account to continue.": "Sign in to your account to continue.",
     "Email": "Email",
-    "user@mail.com": "user@mail.com",
+    "user@email.com": "user@email.com",
     "Password": "Password",
     "Remember me": "Remember me",
     "Forgot password?": "Forgot password?",
     "Don't have an account yet?": "Don't have an account yet?",
 
     "Sign Up": "Register",
+    "Join Us!": "Join Us!",
+    "Become a member and discover all the benefits.": "Become a member and discover all the benefits.",
+    "Confirm password": "Confirm password",
+    "I accept the": "I accept the",
+    "Terms and Conditions": "Terms and Conditions",
 
     "Forget Password": "Password Reset",
     "Forgot your password?": "Forgot your password?",

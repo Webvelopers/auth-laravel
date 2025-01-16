@@ -9,7 +9,7 @@ class ForgetPasswordController extends Controller
 {
     public function create()
     {
-        return view('webvelopers-auth::auth.forget-password');
+        return view('w-auth::auth.forget-password');
     }
 
     public function store(Request $request) {}

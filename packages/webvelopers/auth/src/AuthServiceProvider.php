@@ -12,8 +12,8 @@ class AuthServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/webvelopers-auth.php',
-            'webvelopers-auth'
+            __DIR__.'/../config/w-auth.php',
+            'w-auth'
         );
     }
 
@@ -23,12 +23,12 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->publishes([
-            __DIR__.'/../config/webvelopers-auth.php' => config_path('webvelopers-auth.php'),
+            __DIR__.'/../config/w-auth.php' => config_path('w-auth.php'),
             __DIR__.'/../dist' => public_path('vendor/webvelopers/auth'),
-        ], 'webvelopers-auth');
+        ], 'w-auth');
 
         $this->loadJsonTranslationsFrom(__DIR__.'/../lang');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'webvelopers-auth');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'w-auth');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 }

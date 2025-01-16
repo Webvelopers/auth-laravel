@@ -2,18 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'flowbite';
-/*@import url("vendor/flowbite/flowbite.min.css");*/
+@import "flowbite";
 
 .main {
     @apply bg-gray-50 dark:bg-gray-900;
 }
 
-.main-container {
+.section-container {
     @apply bg-gray-50 dark:bg-gray-900;
 }
 
-.content-wrapper {
+.section-wrapper {
     @apply flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0;
 }
 
@@ -34,11 +33,11 @@
 }
 
 .form-title {
-    @apply mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white;
+    @apply mb-1 text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white;
 }
 
 .form-description {
-    @apply font-light text-gray-500 dark:text-gray-400;
+    @apply text-sm text-center font-light text-gray-900 md:text-lg dark:text-white;
 }
 
 .form {
@@ -61,23 +60,23 @@
     @apply flex items-center justify-between;
 }
 
-.remember-me {
+.checkbox {
     @apply flex items-start;
 }
 
-.remember-me-wrapper {
+.checkbox-wrapper {
     @apply flex items-center h-5;
 }
 
-.remember-me-input {
+.checkbox-input {
     @apply w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800;
 }
 
-.remember-me-text {
+.checkbox-text {
     @apply ml-3 text-sm;
 }
 
-.remember-me-label {
+.checkbox-label {
     @apply text-gray-500 dark:text-gray-300;
 }
 
@@ -85,6 +84,22 @@
     @apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-500;
 }
 
+.terms-link {
+    @apply font-medium text-primary-600 hover:underline dark:text-primary-500;
+}
+
+.policy-link {
+    @apply ;
+}
+
 .submit-button {
     @apply w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800;
+}
+
+.form-footer {
+    @apply text-sm text-center font-light text-gray-900 dark:text-white;
+}
+
+.form-footer-link {
+    @apply font-medium text-primary-600 hover:underline dark:text-primary-500;
 }

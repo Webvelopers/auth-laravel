@@ -1,19 +1,19 @@
-@extends('webvelopers-auth::layouts.guess')
+@extends('w-auth::layouts.guess')
 
 @section('title', __('Sign In'))
 
 @section('content')
-<section class="main-container">
-    <div class="content-wrapper">
+<section class="section-container">
+    <div class="section-wrapper">
 
         {{-- Logo --}}
         <a
-            href="{{ route('home') }}"
+            href="{{ url(config('w-auth.routes.home.path', '/')) }}"
             class="logo-link">
             <img
-                src="{{ config('webvelopers-auth.assets.img.logo', 'https://placehold.co/32x32/2563eb/fff/svg') }}"
+                src="{{ config('w-auth.assets.img.logo', 'https://placehold.co/32x32/2563eb/fff/svg') }}"
                 alt="logo"
-                class="logo-image">
+                class="logo-image" />
             {{ config('app.name', 'Laravel') }}
         </a>
         {{-- Ends Logo --}}
@@ -24,18 +24,19 @@
 
                 {{-- Form Title --}}
                 <h1 class="form-title">
-                    {{ __('Log in to your account') }}
+                    {{ __('Welcome Back!') }}
                 </h1>
                 {{-- Ends Form Title --}}
 
                 {{-- Form Description --}}
                 <p class="form-description">
-                    {{ __('Enter your credentials to access your account.') }}
+                    {{ __('Sign in to your account to continue.') }}
                 </p>
                 {{-- Ends Form Description --}}
 
+                {{-- Form Content --}}
                 <form
-                    action="{{ route('sign-in.store') }}"
+                    action="{{ route(config('w-auth.routes.name.sign-in', 'auth.sign-in')) }}"
                     method="POST"
                     class="form">
                     @csrf
@@ -51,15 +52,15 @@
                             type="email"
                             name="email"
                             id="email"
-                            placeholder="{{ __('user@mail.com') }}"
+                            placeholder="{{ __('user@email.com') }}"
+                            required="on"
                             autocomplete="off"
-                            required=""
                             class="form-input" />
                     </div>
                     {{-- Ends Form Input Email --}}
 
                     {{-- Form Input Password --}}
-                    <div>
+                    <div class="form-group">
                         <label
                             for="password"
                             class="form-label">
@@ -69,21 +70,22 @@
                             type="password"
                             name="password"
                             id="password"
-                            placeholder="••••••••"
+                            placeholder="••••••••••••"
+                            required="on"
                             autocomplete="off"
-                            required=""
                             class="form-input" />
                     </div>
                     {{-- Ends Form Input Password --}}
 
-
+                    {{-- Form Options --}}
                     <div class="form-options">
 
-                        @if (config('webvelopers-auth.sign-in.remember-me'))
-                        <div class="remember-me">
+                        {{-- Remember Me --}}
+                        @if (config('w-auth.options.sign-in.remember-me'))
+                        <div class="checkbox">
 
                             {{-- Form Input Checkbox --}}
-                            <div class="remember-me-wrapper">
+                            <div class="checkbox-wrapper">
                                 <input
                                     type="checkbox"
                                     name="remember"
@@ -91,10 +93,10 @@
                                     aria-describedby="remember"
                                     class="remember-me-input" />
                             </div>
-                            <div class="remember-me-text">
+                            <div class="checkbox-text">
                                 <label
                                     for="remember"
-                                    class="remember-me-label">
+                                    class="checkbox-label">
                                     {{ __('Remember me') }}
                                 </label>
                             </div>
@@ -102,15 +104,19 @@
 
                         </div>
                         @endif
+                        {{-- Ends Remember Me --}}
 
-                        @if (config('webvelopers-auth.sign-in.forget-password'))
+                        {{-- Forget Password --}}
+                        @if (config('w-auth.options.sign-in.forget-password'))
                         <a
-                            href="{{ route('forget-password.create') }}"
+                            href="{{ route(config('w-auth.routes.name.forget-password', 'auth.forget-password')) }}"
                             class="forget-password-link">
                             {{ __('Forgot password?') }}
                         </a>
                         @endif
+                        {{-- Ends Forget Password --}}
                     </div>
+                    {{-- Form Options --}}
 
                     {{-- Form Button Submit --}}
                     <button
@@ -120,16 +126,20 @@
                     </button>
                     {{-- Ends Form Button Submit --}}
 
-                    @if (config('webvelopers-auth.sign-in.sign-up'))
-                    <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        {{ __('Don\'t have an account yet?') }} <a
-                            href="{{ route('sign-up.create') }}"
-                            class="font-medium text-primary-600 hover:underline dark:text-primary-500">
+                    {{-- Sign Up --}}
+                    @if (config('w-auth.options.sign-in.sign-up'))
+                    <p class="form-footer">
+                        {{ __('Don\'t have an account yet?') }}
+                        <a
+                            href="{{ route(config('w-auth.routes.sign-up.name', 'auth.sign-in')) }}"
+                            class="form-footer-link">
                             {{ __('Sign Up') }}
                         </a>
                     </p>
                     @endif
+                    {{-- Ends Sign Up --}}
                 </form>
+                {{-- Ends Form Content --}}
             </div>
         </div>
         {{-- Ends Form --}}

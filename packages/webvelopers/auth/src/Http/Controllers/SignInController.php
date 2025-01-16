@@ -9,7 +9,7 @@ class SignInController extends Controller
 {
     public function create()
     {
-        return view('webvelopers-auth::auth.sign-in');
+        return view('w-auth::auth.sign-in');
     }
 
     public function store(Request $request) {}
