@@ -23,6 +23,10 @@ return [
             'path' => '/auth/forget-password',
             'name' => 'auth.forget-password',
         ],
+        'terms-and-conditions' => [
+            'path' => '/auth/terms-and-conditions',
+            'name' => 'auth.terms-and-conditions',
+        ],
     ],
 
     'options' => [

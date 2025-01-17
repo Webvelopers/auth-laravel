@@ -24,13 +24,13 @@
 
                 {{-- Form Title --}}
                 <h1 class="form-title">
-                    {{ __('Welcome Back!') }}
+                    {{ __('sign-in.title') }}
                 </h1>
                 {{-- Ends Form Title --}}
 
                 {{-- Form Description --}}
                 <p class="form-description">
-                    {{ __('Sign in to your account to continue.') }}
+                    {{ __('sign-in.description') }}
                 </p>
                 {{-- Ends Form Description --}}
 
@@ -46,13 +46,13 @@
                         <label
                             for="email"
                             class="form-label">
-                            {{ __('Email') }}
+                            {{ __('sign-in.email') }}
                         </label>
                         <input
                             type="email"
                             name="email"
                             id="email"
-                            placeholder="{{ __('user@email.com') }}"
+                            placeholder="{{ __('sign-in.email.placeholder') }}"
                             required="on"
                             autocomplete="off"
                             class="form-input" />
@@ -64,7 +64,7 @@
                         <label
                             for="password"
                             class="form-label">
-                            {{ __('Password') }}
+                            {{ __('sign-in.password') }}
                         </label>
                         <input
                             type="password"
@@ -97,7 +97,7 @@
                                 <label
                                     for="remember"
                                     class="checkbox-label">
-                                    {{ __('Remember me') }}
+                                    {{ __('sign-in.remember-me') }}
                                 </label>
                             </div>
                             {{-- Ends Form Input Checkbox --}}
@@ -111,10 +111,11 @@
                         <a
                             href="{{ route(config('w-auth.routes.name.forget-password', 'auth.forget-password')) }}"
                             class="forget-password-link">
-                            {{ __('Forgot password?') }}
+                            {{ __('sign-in.forgot-password') }}
                         </a>
                         @endif
                         {{-- Ends Forget Password --}}
+
                     </div>
                     {{-- Form Options --}}
 
@@ -122,27 +123,30 @@
                     <button
                         type="submit"
                         class="submit-button">
-                        {{ __('Sign In') }}
+                        {{ __('sign-in.submit') }}
                     </button>
                     {{-- Ends Form Button Submit --}}
 
                     {{-- Sign Up --}}
                     @if (config('w-auth.options.sign-in.sign-up'))
                     <p class="form-footer">
-                        {{ __('Don\'t have an account yet?') }}
+                        {{ __('sign-in.sign-up.description') }}
                         <a
                             href="{{ route(config('w-auth.routes.sign-up.name', 'auth.sign-in')) }}"
                             class="form-footer-link">
-                            {{ __('Sign Up') }}
+                            {{ __('sign-in.sign-up') }}
                         </a>
                     </p>
                     @endif
                     {{-- Ends Sign Up --}}
+
                 </form>
                 {{-- Ends Form Content --}}
+
             </div>
         </div>
         {{-- Ends Form --}}
+
     </div>
 </section>
 @endsection

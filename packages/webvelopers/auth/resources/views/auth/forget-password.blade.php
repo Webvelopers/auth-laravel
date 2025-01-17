@@ -3,66 +3,96 @@
 @section('title', __('Forget Password'))
 
 @section('content')
-
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<section class="section-container">
+    <div class="section-wrapper">
 
         {{-- Logo --}}
         <a
             href="{{ config('w-auth.route.home', '/') }}"
-            class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+            class="logo-link">
             <img
                 src="{{ config('w-auth.assets.img.logo', 'https://placehold.co/32x32/2563eb/fff/svg') }}"
                 alt="logo"
-                class="w-8 h-8 mr-2" />
+                class="logo-image" />
             {{ config('app.name', 'Laravel') }}
         </a>
         {{-- Ends Logo --}}
 
-        {{-- Forget Password Form --}}
-        <div class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+        {{-- Form Forget Password --}}
+        <div class="form-container">
+            <div class="form-wrapper">
 
-            {{-- Form Title --}}
-            <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                {{ __('Forgot your password?') }}
-            </h1>
-            {{-- Ends Form Title --}}
+                {{-- Form Title --}}
+                <h1 class="form-title">
+                    {{ __('forget-password.title') }}
+                </h1>
+                {{-- Ends Form Title --}}
 
-            {{-- Form Description --}}
-            <p class="font-light text-gray-500 dark:text-gray-400">
-                {{ __('Don\'t fret! Just type in your email and we will send you a code to reset your password!') }}
-            </p>
-            {{-- Ends Form Description --}}
+                {{-- Form Description --}}
+                <p class="form-description">
+                    {{ __('forget-password.description') }}
+                </p>
+                {{-- Ends Form Description --}}
 
-            <form
-                action="{{ route(config('w-auth.route.name.sign-in', 'auth.sign-in')) }}"
-                method="POST"
-                class="mt-4 space-y-4 lg:mt-5 md:space-y-5">
-                @csrf
+                {{-- Form Content --}}
+                <form
+                    action="{{ route(config('w-auth.route.name.forget-password', 'auth.forget-password')) }}"
+                    method="POST"
+                    class="form">
+                    @csrf
 
-                <div>
-                    <label
-                        for="email"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        {{ __('Email') }}
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="{{ __('user@mail.com') }}"
-                        required="on"
-                        autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
-                </div>
-                <button
-                    type="submit"
-                    class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                    Reset password
-                </button>
-            </form>
+                    {{-- Form Input Email --}}
+                    <div class="form-group">
+                        <label
+                            for="email"
+                            class="form-label">
+                            {{ __('forget-password.email') }}
+                        </label>
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="{{ __('forget-password.email.placeholder') }}"
+                            required="on"
+                            autocomplete="off"
+                            class="form-input" />
+                    </div>
+                    {{-- Form Input Email --}}
+
+                    {{-- Form Button Submit --}}
+                    <button
+                        type="submit"
+                        class="submit-button">
+                        {{ __('forget-password.submit') }}
+                    </button>
+                    {{-- Form Button Submit --}}
+
+                    {{-- Form Footer --}}
+                    <p
+                        class="form-footer">
+                        {{ __('forget-password.sign-in.description') }} <a
+                            href="{{ url(config('w-auth.routes.sign-in.path', '/auth/sign-in')) }}"
+                            class="form-footer-link">
+                            {{ __('forget-password.sign-in') }}
+                        </a>
+                    </p>
+                    <p
+                        class="form-footer">
+                        {{ __('forget-password.sign-up.description') }} <a
+                            href="{{ url(config('w-auth.routes.sign-up.path', '/auth/sign-up')) }}"
+                            class="form-footer-link">
+                            {{ __('forget-password.sign-up') }}
+                        </a>
+                    </p>
+                    {{-- Ends Form Footer --}}
+
+                </form>
+                {{-- Form Content --}}
+
+            </div>
         </div>
-        {{-- Ends Forget Password Form --}}
+        {{-- Ends Form Forget Password --}}
+
     </div>
 </section>
 @endsection
