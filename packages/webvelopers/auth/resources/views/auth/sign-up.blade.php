@@ -272,19 +272,19 @@
 @section('script')
 <script>
     const imageUrls = [
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-0.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-1.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-2.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-3.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-4.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-5.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-6.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-7.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-8.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/webp/captcha-9.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/0.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/1.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/2.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/3.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/4.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/5.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/6.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/7.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/8.webp') }}",
+        "{{ url('vendor/webvelopers/auth/images/captcha/9.webp') }}",
     ];
 
-    const imageSource = "{{ url('vendor/webvelopers/auth/images/webp/captcha-') }}";
+    const imageSource = "{{ url('vendor/webvelopers/auth/images/captcha') }}";
     const refreshButton = document.getElementById("refresh");
     const inputs = document.querySelectorAll('input[name^="captcha-"]');
 
@@ -310,7 +310,7 @@
         for (let i = 1; i < 7; i++) {
             const imageElement = document.createElement("img");
             const randomNumber = Math.floor(Math.random() * 10);
-            imageElement.src = imageSource + randomNumber + ".webp";
+            imageElement.src = imageSource + "/" + randomNumber + ".webp";
             imageElement.alt = `captcha-${i}`;
             imageElement.classList.add("form-captcha-image");
             divImages.appendChild(imageElement);
