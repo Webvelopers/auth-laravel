@@ -23,9 +23,17 @@ return [
             'path' => '/auth/forget-password',
             'name' => 'auth.forget-password',
         ],
+        'verify-email' => [
+            'path' => '/auth/verify-email',
+            'name' => 'auth.verify-email',
+        ],
         'terms-and-conditions' => [
             'path' => '/auth/terms-and-conditions',
             'name' => 'auth.terms-and-conditions',
+        ],
+        'privacy-policy' => [
+            'path' => '/auth/privacy-policy',
+            'name' => 'auth.privacy-policy',
         ],
     ],
 
@@ -36,9 +44,15 @@ return [
             'sign-up' => true,
         ],
         'sign-up' => [
-            'recaptcha' => true,
+            'confirm-password' => true,
+            'captcha' => true,
             'terms-and-conditions' => true,
             'privacy-policy' => true,
+            'sign-in' => true,
+        ],
+        'forget-password' => [
+            'sign-in' => true,
+            'sign-up' => true,
         ],
     ],
 

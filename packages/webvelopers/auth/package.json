@@ -4,10 +4,10 @@
     "description": "Webvelopers Auth",
     "main": "auth.css",
     "scripts": {
-        "build": "",
-        "watch": "",
-        "build:css": "npx tailwindcss -i ./resources/css/app.css -o ./dist/app.css",
-        "watch:css": "npx tailwindcss -i ./resources/css/app.css -o ./dist/app.css --watch"
+        "build": "concurrently \"npx mix --production\" \"npm run build:css\"",
+        "watch": "concurrently \"npx mix watch\" \"npm run watch:css\"", 
+        "build:css": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --minify",
+        "watch:css": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch"
     },
     "author": "Webvelopers, Inc.",
     "license": "MIT",

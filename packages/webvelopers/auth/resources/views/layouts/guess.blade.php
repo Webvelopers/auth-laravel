@@ -16,15 +16,16 @@
     @if (config('app.env') === 'production')
     <script src="https://cdn.tailwindcss.com"></script>
     @else
-    <link rel="stylesheet" href="{{ asset('vendor/webvelopers/auth/app.css') }}">   
+    <link rel="stylesheet" href="{{ asset('vendor/webvelopers/auth/css/app.css') }}">
     @endif
-    @yield('script')
 </head>
 
 <body class="main">
     @yield('content')
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="{{ url('vendor/webvelopers/auth/js/app.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

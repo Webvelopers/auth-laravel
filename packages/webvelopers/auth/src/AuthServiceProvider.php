@@ -24,7 +24,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/w-auth.php' => config_path('w-auth.php'),
-            __DIR__.'/../dist' => public_path('vendor/webvelopers/auth'),
+            __DIR__.'/../public' => public_path('vendor/webvelopers/auth'),
         ], 'w-auth');
 
         $this->loadJsonTranslationsFrom(__DIR__.'/../lang');
