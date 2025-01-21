@@ -36,7 +36,7 @@
 
                 {{-- Form Content --}}
                 <form
-                    action="{{ route(config('w-auth.routes.name.sign-in', 'auth.sign-in')) }}"
+                    action="{{ route(config('w-auth.routes.name.sign-in.store', 'auth.sign-in.store')) }}"
                     method="POST"
                     class="form">
                     @csrf
@@ -109,7 +109,7 @@
                         {{-- Forget Password --}}
                         @if (config('w-auth.options.sign-in.forget-password'))
                         <a
-                            href="{{ route(config('w-auth.routes.name.forget-password', 'auth.forget-password')) }}"
+                            href="{{ route(config('w-auth.routes.forget-password.create', 'auth.forget-password.create')) }}"
                             class="forget-password-link">
                             {{ __('sign-in.forgot-password') }}
                         </a>
@@ -132,7 +132,7 @@
                     <p class="form-footer">
                         {{ __('sign-in.sign-up.description') }}
                         <a
-                            href="{{ route(config('w-auth.routes.sign-up.name', 'auth.sign-in')) }}"
+                            href="{{ route(config('w-auth.routes.sign-up.create', 'auth.sign-in.create')) }}"
                             class="form-footer-link">
                             {{ __('sign-in.sign-up') }}
                         </a>

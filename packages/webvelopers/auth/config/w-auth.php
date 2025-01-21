@@ -63,38 +63,46 @@ return [
     ],
 
     'routes' => [
+
         'home' => [
             'path' => '/',
             'index' => 'auth.home',
         ],
+
         'dashboard' => [
             'path' => '/dashboard',
             'index' => 'auth.dashboard',
         ],
+
         'sign-in' => [
             'path' => '/auth/sign-in',
             'create' => 'auth.sign-in.create',
             'store' => 'auth.sign-in.store',
         ],
+
         'sign-up' => [
             'path' => '/auth/sign-up',
             'create' => 'auth.sign-up.create',
             'store' => 'auth.sign-up.store',
         ],
+
         'forget-password' => [
             'path' => '/auth/forget-password',
             'create' => 'auth.forget-password.create',
             'store' => 'auth.forget-password.store',
         ],
+
         'verify-email' => [
             'path' => '/auth/verify-email',
             'create' => 'auth.verify-email.create',
             'store' => 'auth.verify-email.store',
         ],
+
         'terms-and-conditions' => [
             'path' => '/auth/terms-and-conditions',
             'index' => 'auth.terms-and-conditions',
         ],
+
         'privacy-policy' => [
             'path' => '/auth/privacy-policy',
             'index' => 'auth.privacy-policy',
@@ -102,8 +110,10 @@ return [
     ],
 
     'assets' => [
+
         'img' => [
             'logo' => 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg',
         ],
+
     ],
 ];

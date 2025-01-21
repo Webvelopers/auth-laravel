@@ -36,7 +36,7 @@
 
                 {{-- Form Content --}}
                 <form
-                    action="{{ route(config('w-auth.route.name.forget-password', 'auth.forget-password')) }}"
+                    action="{{ route(config('w-auth.routes.forget-password.store', 'auth.forget-password.store')) }}"
                     method="POST"
                     class="form">
                     @csrf

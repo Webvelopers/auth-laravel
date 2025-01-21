@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Webvelopers\Auth\Http\Controllers\ForgetPasswordController;
 use Webvelopers\Auth\Http\Controllers\SignInController;
 use Webvelopers\Auth\Http\Controllers\SignUpController;
-use Webvelopers\Auth\Http\Controllers\ForgetPasswordController;
 
 Route::get(
     config('w-auth.routes.sign-in.path', '/auth/sign-in'),

@@ -1,1 +1,32 @@
-(()=>{var e=document.querySelectorAll('input[name^="captcha-"]');e.forEach((function(t,a){t.addEventListener("input",(function(t){var n=t.target.value;t.target.value=n.replace(/[^0-9]/g,"").slice(0,1),n&&a<e.length-1&&e[a+1].focus()})),t.addEventListener("keypress",(function(e){isNaN(e.key)?e.preventDefault():e.target.value=e.key.slice(0,1)})),t.addEventListener("keydown",(function(t){"Backspace"===t.key&&""===t.target.value&&a>0&&e[a-1].focus()}))}))})();
+/******/ (() => { // webpackBootstrap
+/*!*********************************!*\
+  !*** ./resources/js/sign-up.js ***!
+  \*********************************/
+var inputs = document.querySelectorAll('input[name^="captcha-"]');
+inputs.forEach(function (input, i) {
+  input.addEventListener("input", function (event) {
+    var value = event.target.value;
+    event.target.value = value.replace(/[^0-9]/g, "").slice(0, 1);
+    if (value) {
+      if (i < inputs.length - 1) {
+        inputs[i + 1].focus();
+      }
+    }
+  });
+  input.addEventListener("keypress", function (event) {
+    if (isNaN(event.key)) {
+      event.preventDefault();
+    } else {
+      event.target.value = event.key.slice(0, 1);
+    }
+  });
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Backspace" && event.target.value === "") {
+      if (i > 0) {
+        inputs[i - 1].focus();
+      }
+    }
+  });
+});
+/******/ })()
+;

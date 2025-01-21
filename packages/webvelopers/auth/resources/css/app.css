@@ -69,7 +69,7 @@
 }
 
 .form-captcha-image {
-    @apply col-span-1 px-2 w-full block;
+    @apply col-span-1 px-2 w-full block rounded-lg;
 }
 
 .form-captcha-inputs {

@@ -36,7 +36,7 @@
 
                 {{-- Form Content --}}
                 <form
-                    action="{{ route(config('w-auth.routes.sign-up.name', 'auth.sign-up')) }}"
+                    action="{{ route(config('w-auth.routes.sign-up.store', 'auth.sign-up.store')) }}"
                     method="POST"
                     class="form">
 

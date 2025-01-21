@@ -19,16 +19,16 @@ class SignUpRequest extends FormRequest
 
         if (config('w-auth.security.password.min-length.active', true)) {
             $value = config('w-auth.security.password.min-length.value', 8);
-            array_merge($password_rules, ['min:' . $value]);
+            array_merge($password_rules, ['min:'.$value]);
         }
 
         if (config('w-auth.security.password.max-length.active', true)) {
             $value = config('w-auth.security.password.max-length.value', 32);
-            array_merge($password_rules, ['max:' . $value]);
+            array_merge($password_rules, ['max:'.$value]);
         }
 
         if (config('w-auth.security.password.max-symbols.active', true)) {
-            array_merge($password_rules, ['regex:/[' . config('w-auth.security.password.max-symbols.value', '@$!%*#?&') . ']/']);
+            array_merge($password_rules, ['regex:/['.config('w-auth.security.password.max-symbols.value', '@$!%*#?&').']/']);
         }
 
         if (config('w-auth.security.password.require-uppercase', true)) {

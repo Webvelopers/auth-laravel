@@ -17,7 +17,7 @@ class Captcha
     /**
      * image path
      */
-    const IMAGES_PATH = 'vendor/webvelopers/auth/images/captcha';
+    const IMAGES_PATH = 'https://placehold.co/32x32/gray/white/svg?text=';
 
     /**
      * generate captcha image
@@ -29,7 +29,7 @@ class Captcha
         $images = [];
 
         foreach ($digits as $digit) {
-            $imagesDigit = self::IMAGES_PATH . '/' . md5($digit) . '.webp';
+            $imagesDigit = self::IMAGES_PATH . $digit;
             $images[] = $imagesDigit;
         }
 
