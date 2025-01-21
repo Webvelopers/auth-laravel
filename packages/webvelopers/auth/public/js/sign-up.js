@@ -1,7 +1,1 @@
-/******/ (() => { // webpackBootstrap
-/*!*********************************!*\
-  !*** ./resources/js/sign-up.js ***!
-  \*********************************/
-
-/******/ })()
-;
+(()=>{var e=document.querySelectorAll('input[name^="captcha-"]');e.forEach((function(t,a){t.addEventListener("input",(function(t){var n=t.target.value;t.target.value=n.replace(/[^0-9]/g,"").slice(0,1),n&&a<e.length-1&&e[a+1].focus()})),t.addEventListener("keypress",(function(e){isNaN(e.key)?e.preventDefault():e.target.value=e.key.slice(0,1)})),t.addEventListener("keydown",(function(t){"Backspace"===t.key&&""===t.target.value&&a>0&&e[a-1].focus()}))}))})();

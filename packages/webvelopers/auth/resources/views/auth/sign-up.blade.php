@@ -39,7 +39,13 @@
                     action="{{ route(config('w-auth.routes.sign-up.name', 'auth.sign-up')) }}"
                     method="POST"
                     class="form">
-                    @csrf
+
+                    {{-- Form CSRF Protection --}}
+                    <input
+                        type="hidden"
+                        name="_token"
+                        value="{{ csrf_token() }}" />
+                    {{-- Ends Form CSRF Protection --}}
 
                     {{-- Form Input Email --}}
                     <div class="form-group">
@@ -52,6 +58,7 @@
                             type="email"
                             name="email"
                             id="email"
+                            value="{{ old('email') }}"
                             placeholder="{{ __('sign-up.email.placeholder') }}"
                             required="on"
                             autocomplete="off"
@@ -70,6 +77,7 @@
                             type="password"
                             name="password"
                             id="password"
+                            value="{{ old('password') }}"
                             placeholder="••••••••••••"
                             required="on"
                             autocomplete="off"
@@ -78,7 +86,7 @@
                     {{-- Ends Form Input Password --}}
 
                     {{-- Form Input Confirm Password --}}
-                    @if (config('w-auth.options.sign-up.confirm-password'))
+                    @if (config('w-auth.options.sign-up.confirm-password', true))
                     <div class="form-group">
                         <label
                             for="confirm-password"
@@ -89,6 +97,7 @@
                             type="password"
                             name="confirm-password"
                             id="confirm-password"
+                            value="{{ old('confirm-password') }}"
                             placeholder="••••••••••••"
                             required="on"
                             autocomplete="off"
@@ -115,30 +124,12 @@
                         <div
                             id="captcha"
                             class="form-captcha-images">
+                            @foreach ($options['captcha'] as $image)
                             <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-1"
+                                src="{{ url($image) }}"
+                                alt="captcha-{{ $image }}"
                                 class="form-captcha-image" />
-                            <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-2"
-                                class="form-captcha-image" />
-                            <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-3"
-                                class="form-captcha-image" />
-                            <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-4"
-                                class="form-captcha-image" />
-                            <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-5"
-                                class="form-captcha-image" />
-                            <img
-                                src="https://placehold.co/48x48?text=0"
-                                alt="captcha-6"
-                                class="form-captcha-image" />
+                            @endforeach
                         </div>
                         <div
                             class="form-captcha-inputs">
@@ -146,37 +137,43 @@
                                 type="text"
                                 name="captcha-1"
                                 id="captcha-1"
-                                require="on"
+                                value="{{ old('captcha-1') }}"
+                                required="on"
                                 class="form-captcha-input" />
                             <input
                                 type="text"
                                 name="captcha-2"
                                 id="captcha-2"
-                                require="on"
+                                value="{{ old('captcha-2') }}"
+                                required="on"
                                 class="form-captcha-input" />
                             <input
                                 type="text"
                                 name="captcha-3"
                                 id="captcha-3"
-                                require="on"
+                                value="{{ old('captcha-3') }}"
+                                required="on"
                                 class="form-captcha-input" />
                             <input
                                 type="text"
                                 name="captcha-4"
                                 id="captcha-4"
-                                require="on"
+                                value="{{ old('captcha-4') }}"
+                                required="on"
                                 class="form-captcha-input" />
                             <input
                                 type="text"
                                 name="captcha-5"
                                 id="captcha-5"
-                                require="on"
+                                value="{{ old('captcha-5') }}"
+                                required="on"
                                 class="form-captcha-input" />
                             <input
                                 type="text"
                                 name="captcha-6"
                                 id="captcha-6"
-                                require="on"
+                                value="{{ old('captcha-6') }}"
+                                required="on"
                                 class="form-captcha-input" />
                         </div>
                     </div>
@@ -270,98 +267,7 @@
 @endsection
 
 @section('script')
-<script>
-    const imageUrls = [
-        "{{ url('vendor/webvelopers/auth/images/captcha/0.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/1.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/2.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/3.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/4.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/5.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/6.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/7.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/8.webp') }}",
-        "{{ url('vendor/webvelopers/auth/images/captcha/9.webp') }}",
-    ];
-
-    const imageSource = "{{ url('vendor/webvelopers/auth/images/captcha') }}";
-    const refreshButton = document.getElementById("refresh");
-    const inputs = document.querySelectorAll('input[name^="captcha-"]');
-
-    function loadImage(url) {
-        return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = reject;
-            img.src = url;
-        });
-    }
-
-    async function loadAllImages() {
-        const promises = imageUrls.map(loadImage);
-        return Promise.all(promises);
-    }
-
-    function randomImages(imageSource) {
-        const divImages = document.getElementById("captcha");
-        divImages.innerHTML = "";
-        divImages.classList.add("form-captcha-images");
-
-        for (let i = 1; i < 7; i++) {
-            const imageElement = document.createElement("img");
-            const randomNumber = Math.floor(Math.random() * 10);
-            imageElement.src = imageSource + "/" + randomNumber + ".webp";
-            imageElement.alt = `captcha-${i}`;
-            imageElement.classList.add("form-captcha-image");
-            divImages.appendChild(imageElement);
-        }
-    }
-
-    inputs.forEach((input, i) => {
-        input.addEventListener("input", (event) => {
-            const value = event.target.value;
-            event.target.value = value.replace(/[^0-9]/g, "").slice(0, 1);
-
-            if (value) {
-                if (i < inputs.length - 1) {
-                    inputs[i + 1].focus();
-                }
-            }
-        });
-
-        input.addEventListener("keypress", (event) => {
-            if (isNaN(event.key)) {
-                event.preventDefault();
-            } else {
-                event.target.value = event.key.slice(0, 1);
-            }
-        });
-
-        input.addEventListener("keydown", (event) => {
-            if (event.key === "Backspace" && event.target.value === "") {
-                if (i > 0) {
-                    inputs[i - 1].focus();
-                }
-            }
-        });
-    });
-
-    refreshButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        randomImages(imageSource);
-        inputs.forEach((input) => {
-            input.value = "";
-        });
-        inputs[0].focus();
-    });
-
-    loadAllImages()
-        .then(() => {
-            randomImages(imageSource);
-        })
-        .catch((error) => {
-            console.error("{{ __('sign-up.captcha.error.images') }}", error);
-        });
-</script>
+@if (config('w-auth.options.sign-up.captcha'))
 <script src="{{ url('vendor/webvelopers/auth/js/sign-up.js') }}"></script>
+@endif
 @endsection

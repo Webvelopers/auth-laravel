@@ -2,6 +2,48 @@
 
 return [
 
+    'security' => [
+        'password' => [
+            'min-length' => [
+                'active' => true,
+                'value' => 8,
+            ],
+            'max-length' => [
+                'active' => true,
+                'value' => 32,
+            ],
+            'require-symbols' => [
+                'active' => true,
+                'value' => '@$!%*#?&',
+            ],
+            'require-uppercase' => true,
+            'require-lowercase' => true,
+            'require-numbers' => true,
+        ],
+    ],
+
+    'options' => [
+        'sign-in' => [
+            'active' => true,
+            'remember-me' => true,
+            'forget-password' => true,
+            'sign-up' => true,
+        ],
+        'sign-up' => [
+            'active' => true,
+            'confirm-password' => true,
+            'captcha' => true,
+            'terms-and-conditions' => true,
+            'privacy-policy' => true,
+            'sign-in' => true,
+        ],
+        'forget-password' => [
+            'active' => true,
+            'sign-in' => true,
+            'sign-up' => true,
+        ],
+    ],
+
     'routes' => [
         'home' => [
             'path' => '/',
@@ -34,25 +76,6 @@ return [
         'privacy-policy' => [
             'path' => '/auth/privacy-policy',
             'name' => 'auth.privacy-policy',
-        ],
-    ],
-
-    'options' => [
-        'sign-in' => [
-            'remember-me' => true,
-            'forget-password' => true,
-            'sign-up' => true,
-        ],
-        'sign-up' => [
-            'confirm-password' => true,
-            'captcha' => true,
-            'terms-and-conditions' => true,
-            'privacy-policy' => true,
-            'sign-in' => true,
-        ],
-        'forget-password' => [
-            'sign-in' => true,
-            'sign-up' => true,
         ],
     ],
 
