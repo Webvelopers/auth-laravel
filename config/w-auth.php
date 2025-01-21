@@ -2,43 +2,61 @@
 
 return [
 
+    'show' => [
+        'sign-up' => true,
+        'forget-password' => true,
+    ],
+
     'security' => [
+
         'password' => [
+
             'min-length' => [
                 'active' => true,
                 'value' => 8,
             ],
+
             'max-length' => [
                 'active' => true,
                 'value' => 32,
             ],
+
             'require-symbols' => [
                 'active' => true,
                 'value' => '@$!%*#?&',
             ],
-            'require-uppercase' => true,
-            'require-lowercase' => true,
-            'require-numbers' => true,
+
+            'require-uppercase' => [
+                'active' => true,
+            ],
+
+            'require-lowercase' => [
+                'active' => true,
+            ],
+
+            'require-numbers' => [
+                'active' => true,
+            ],
         ],
     ],
 
     'options' => [
+
         'sign-in' => [
-            'active' => true,
             'remember-me' => true,
             'forget-password' => true,
             'sign-up' => true,
         ],
+
         'sign-up' => [
-            'active' => true,
             'confirm-password' => true,
             'captcha' => true,
             'terms-and-conditions' => true,
             'privacy-policy' => true,
             'sign-in' => true,
         ],
+
         'forget-password' => [
-            'active' => true,
             'sign-in' => true,
             'sign-up' => true,
         ],
@@ -47,35 +65,39 @@ return [
     'routes' => [
         'home' => [
             'path' => '/',
-            'name' => 'auth.home',
+            'index' => 'auth.home',
         ],
         'dashboard' => [
             'path' => '/dashboard',
-            'name' => 'auth.dashboard',
+            'index' => 'auth.dashboard',
         ],
         'sign-in' => [
             'path' => '/auth/sign-in',
-            'name' => 'auth.sign-in',
+            'create' => 'auth.sign-in.create',
+            'store' => 'auth.sign-in.store',
         ],
         'sign-up' => [
             'path' => '/auth/sign-up',
-            'name' => 'auth.sign-up',
+            'create' => 'auth.sign-up.create',
+            'store' => 'auth.sign-up.store',
         ],
         'forget-password' => [
             'path' => '/auth/forget-password',
-            'name' => 'auth.forget-password',
+            'create' => 'auth.forget-password.create',
+            'store' => 'auth.forget-password.store',
         ],
         'verify-email' => [
             'path' => '/auth/verify-email',
-            'name' => 'auth.verify-email',
+            'create' => 'auth.verify-email.create',
+            'store' => 'auth.verify-email.store',
         ],
         'terms-and-conditions' => [
             'path' => '/auth/terms-and-conditions',
-            'name' => 'auth.terms-and-conditions',
+            'index' => 'auth.terms-and-conditions',
         ],
         'privacy-policy' => [
             'path' => '/auth/privacy-policy',
-            'name' => 'auth.privacy-policy',
+            'index' => 'auth.privacy-policy',
         ],
     ],
 

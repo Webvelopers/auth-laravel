@@ -18,11 +18,13 @@ class SignUpRequest extends FormRequest
         $password_rules = ['required'];
 
         if (config('w-auth.security.password.min-length.active', true)) {
-            array_merge($password_rules, ['min:' . config('w-auth.security.password.min-length.value', 8)]);
+            $value = config('w-auth.security.password.min-length.value', 8);
+            array_merge($password_rules, ['min:' . $value]);
         }
 
         if (config('w-auth.security.password.max-length.active', true)) {
-            array_merge($password_rules, ['max:' . config('w-auth.security.password.max-length.value', 32)]);
+            $value = config('w-auth.security.password.max-length.value', 32);
+            array_merge($password_rules, ['max:' . $value]);
         }
 
         if (config('w-auth.security.password.max-symbols.active', true)) {
