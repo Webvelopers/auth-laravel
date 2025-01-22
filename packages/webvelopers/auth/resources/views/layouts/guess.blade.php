@@ -13,19 +13,14 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     {{-- Styles / Scripts --}}
-    @if (config('app.env') === 'production')
-    <script src="https://cdn.tailwindcss.com"></script>
-    @else
     <link rel="stylesheet" href="{{ asset('vendor/webvelopers/auth/css/app.css') }}">
-    @endif
+    <script defer src="{{ url('vendor/webvelopers/auth/js/app.js') }}"></script>
+    @yield('script')
 </head>
 
 <body class="main">
     @yield('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-    <script src="{{ url('vendor/webvelopers/auth/js/app.js') }}"></script>
-    @yield('script')
 </body>
 
 </html>

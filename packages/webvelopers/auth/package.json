@@ -5,13 +5,14 @@
     "main": "auth.css",
     "scripts": {
         "build": "concurrently \"npx mix --production\" \"npm run build:css\"",
-        "watch": "concurrently \"npx mix watch\" \"npm run watch:css\"", 
+        "watch": "concurrently \"npx mix watch\" \"npm run watch:css\"",
         "build:css": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --minify",
         "watch:css": "npx tailwindcss -i ./resources/css/app.css -o ./public/css/app.css --watch"
     },
     "author": "Webvelopers, Inc.",
     "license": "MIT",
     "devDependencies": {
+        "alpinejs": "^3.14.8",
         "autoprefixer": "^10.4.20",
         "flowbite": "^2.5.2",
         "laravel-mix": "^6.0.49",

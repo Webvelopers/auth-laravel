@@ -61,7 +61,7 @@
 }
 
 .form-captcha-reset {
-    @apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-500;
+    @apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-500 cursor-pointer;
 }
 
 .form-captcha-images {

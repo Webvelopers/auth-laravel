@@ -5,6 +5,10 @@ return [
     'show' => [
         'sign-up' => true,
         'forget-password' => true,
+
+        'api' => [
+            'captcha' => true,
+        ],
     ],
 
     'security' => [
@@ -106,6 +110,13 @@ return [
         'privacy-policy' => [
             'path' => '/auth/privacy-policy',
             'index' => 'auth.privacy-policy',
+        ],
+
+        'api' => [
+            'captcha' => [
+                'path' => '/auth/api/captcha',
+                'invoke' => 'auth.api.captcha',
+            ],
         ],
     ],
 
