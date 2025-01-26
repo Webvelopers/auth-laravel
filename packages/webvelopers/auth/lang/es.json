@@ -16,6 +16,8 @@
     "Sign Up": "Regístrate",
     "sign-up.title": "¡Crea tu cuenta y comienza la aventura!",
     "sign-up.description": "Regístrate para acceder a contenido exclusivo, personalizar tu experiencia y conectar con nuestra comunidad.",
+    "sign-up.name": "Nombres",
+    "sign-up.name.placeholder": "Juan Rodriguez",
     "sign-up.email": "Correo electrónico",
     "sign-up.email.placeholder": "correo@electrónico.com",
     "sign-up.password": "Contraseña",

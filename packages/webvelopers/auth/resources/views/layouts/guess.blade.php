@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    class="{{ config('w-auth.show.dark-mode', true) ? 'dark' : '' }}">
 
 <head>
     <meta charset="utf-8">
@@ -15,12 +17,12 @@
     {{-- Styles / Scripts --}}
     <link rel="stylesheet" href="{{ asset('vendor/webvelopers/auth/css/app.css') }}">
     <script defer src="{{ url('vendor/webvelopers/auth/js/app.js') }}"></script>
-    @yield('script')
 </head>
 
 <body class="main">
     @yield('content')
 
+    @yield('script')
 </body>
 
 </html>

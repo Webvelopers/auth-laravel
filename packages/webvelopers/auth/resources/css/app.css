@@ -60,12 +60,8 @@
     @apply flex items-center justify-between;
 }
 
-.form-captcha-reset {
-    @apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-500 cursor-pointer;
-}
-
 .form-captcha-images {
-    @apply grid grid-cols-6 my-4;
+    @apply grid grid-cols-6 mb-1;
 }
 
 .form-captcha-image {

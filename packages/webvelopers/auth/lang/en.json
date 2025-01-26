@@ -16,6 +16,8 @@
     "Sign Up": "Register",
     "sign-up.title": "Create your account and start the adventure!",
     "sign-up.description": "Sign up to access exclusive content, personalize your experience, and connect with our community.",
+    "sign-up.name": "Name",
+    "sign-up.name.placeholder": "John Doe",
     "sign-up.email": "Email",
     "sign-up.email.placeholder": "user@email.com",
     "sign-up.password": "Password",

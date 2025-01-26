@@ -14,6 +14,7 @@
       "open-southeners.laravel-pint"
       "porifa.laravel-intelephense"
       "qwtel.sqlite-viewer"
+      "shufo.vscode-blade-formatter"
     ];
     workspace = {
       onCreate = {

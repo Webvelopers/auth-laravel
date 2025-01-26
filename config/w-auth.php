@@ -3,8 +3,10 @@
 return [
 
     'show' => [
+        'dark-mode' => true,
         'sign-up' => true,
         'forget-password' => true,
+        'verify-token' => true,
 
         'api' => [
             'captcha' => true,
@@ -15,32 +17,33 @@ return [
 
         'password' => [
 
-            'min-length' => [
+            'minimal' => [
                 'active' => true,
                 'value' => 8,
             ],
 
-            'max-length' => [
+            'maximal' => [
                 'active' => true,
                 'value' => 32,
             ],
 
-            'require-symbols' => [
-                'active' => true,
-                'value' => '@$!%*#?&',
-            ],
-
-            'require-uppercase' => [
+            'uppercase' => [
                 'active' => true,
             ],
 
-            'require-lowercase' => [
+            'lowercase' => [
                 'active' => true,
             ],
 
-            'require-numbers' => [
+            'number' => [
                 'active' => true,
             ],
+
+            'symbol' => [
+                'active' => true,
+                'value' => '|~\^_`<>{}[]()',
+            ],
+
         ],
     ],
 
