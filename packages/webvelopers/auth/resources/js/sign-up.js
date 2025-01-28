@@ -1,4 +1,4 @@
-const inputs = document.querySelectorAll('input[name^="captcha-"]');
+const inputs = document.querySelectorAll('input[name^="captcha_"]');
 
 inputs.forEach((input, i) => {
     input.addEventListener("input", (event) => {

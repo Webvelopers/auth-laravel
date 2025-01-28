@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 // use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Webvelopers\Auth\Helpers\Captcha;
 use Webvelopers\Auth\Rules\PasswordLowercase;
 use Webvelopers\Auth\Rules\PasswordMaximal;
 use Webvelopers\Auth\Rules\PasswordMinimal;
@@ -21,14 +20,7 @@ class SignUpController extends Controller
 {
     public function create(array $options = [])
     {
-        if (config('w-auth.options.sign-up.captcha')) {
-            $options['captcha'] = Captcha::generateCaptcha(
-                config('w-auth.show.dark-mode', true)
-            );
-            $options['captcha']['code'] = Hash::make($options['captcha']['code']);
-        }
-
-        return view('w-auth::auth.sign-up', ['options' => $options]);
+        return view('w-auth::auth.sign-up');
     }
 
     public function store(Request $request)
@@ -88,14 +80,14 @@ class SignUpController extends Controller
             $rules = array_merge(
                 $rules,
                 collect(range(1, 6))
-                    ->mapWithKeys(fn($i) => ["captcha-$i" => ['required', 'integer']])
+                    ->mapWithKeys(fn ($i) => ["captcha_$i" => ['required', 'integer']])
                     ->toArray()
             );
 
             $messages = array_merge(
                 $messages,
                 collect(range(1, 6))
-                    ->mapWithKeys(fn($i) => ["captcha-$i.required" => "El campo captcha-$i es obligatorio."])
+                    ->mapWithKeys(fn ($i) => ["captcha_$i.required" => 'El campo captcha es obligatorio.'])
                     ->toArray()
             );
         }
@@ -115,11 +107,11 @@ class SignUpController extends Controller
         if ($validator->fails()) {
             foreach ($validator->errors()->messages() as $error => $messages) {
                 session()->flash($error, $messages);
-                session()->flash('_flash',[
+                session()->flash('_flash', [
                     'old' => $request->all(),
                 ]);
             }
-            //dd(session()->all());
+            // dd(session()->all());
 
             return $this->create();
         }
@@ -137,7 +129,7 @@ class SignUpController extends Controller
 
         if (config('w-auth.options.sign-up.captcha')) {
             $code = collect(range(1, 6))
-                ->map(fn($i) => $request->input("captcha-$i"))
+                ->map(fn ($i) => $request->input("captcha-$i"))
                 ->implode('');
 
             if (Hash::check($code, $request->hashedcaptcha)) {

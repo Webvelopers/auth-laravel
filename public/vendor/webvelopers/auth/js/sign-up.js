@@ -2,7 +2,7 @@
 /*!*********************************!*\
   !*** ./resources/js/sign-up.js ***!
   \*********************************/
-var inputs = document.querySelectorAll('input[name^="captcha-"]');
+var inputs = document.querySelectorAll('input[name^="captcha_"]');
 inputs.forEach(function (input, i) {
   input.addEventListener("input", function (event) {
     var value = event.target.value;

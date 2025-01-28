@@ -3,7 +3,7 @@
 return [
 
     'show' => [
-        'dark-mode' => true,
+        'dark-mode' => false,
         'sign-up' => true,
         'forget-password' => true,
         'verify-token' => true,
@@ -11,7 +11,7 @@ return [
 
     'security' => [
         'password' => [
-            'confirm' => [
+            'confirmation' => [
                 'active' => true,
             ],
 
@@ -57,7 +57,7 @@ return [
         ],
 
         'sign-up' => [
-            'confirm-password' => true,
+            'password-confirmation' => true,
             'captcha' => true,
             'terms-and-conditions' => true,
             'privacy-policy' => true,
@@ -130,13 +130,13 @@ return [
         ],
 
         'sign-up' => [
-            'name' => 'John Doe',
-            'email' => 'john.due@email.com',
-            'password' => 'Password1234.',
-            'confirm-password' => 'Password1234.',
-            'captcha' => 0,
-            'terms' => '1',
-            'policy' => '1',
+            'name' => '',
+            'email' => '',
+            'password' => '',
+            'password-confirmation' => '',
+            'captcha' => null,
+            'terms' => '0',
+            'policy' => '0',
         ],
     ],
 ];

@@ -2,6 +2,7 @@
 
 namespace Webvelopers\Auth;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -30,5 +31,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(__DIR__.'/../lang');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'w-auth');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        Blade::component('captcha-component', 'Webvelopers\Auth\View\Components\CaptchaComponent');
     }
 }

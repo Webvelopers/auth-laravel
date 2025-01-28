@@ -69,6 +69,7 @@
             "@php -r \"file_exists('public/vendor/webvelopers/auth/css/app.css') && unlink('public/vendor/webvelopers/auth/css/app.css');\"",
             "@php -r \"file_exists('public/vendor/webvelopers/auth/js/app.js') && unlink('public/vendor/webvelopers/auth/js/app.js');\"",
             "@php -r \"file_exists('public/vendor/webvelopers/auth/js/sign-up.js') && unlink('public/vendor/webvelopers/auth/js/sign-up.js');\"",
+            "vendor/bin/pint",
             "@php artisan vendor:publish --tag=w-auth"
         ]
     },
