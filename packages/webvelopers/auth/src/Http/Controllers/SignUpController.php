@@ -19,10 +19,8 @@ use Webvelopers\Auth\Rules\PasswordUppercase;
 
 class SignUpController extends Controller
 {
-    public function create()
+    public function create(array $options = [])
     {
-        $options = [];
-
         if (config('w-auth.options.sign-up.captcha')) {
             $options['captcha'] = Captcha::generateCaptcha(
                 config('w-auth.show.dark-mode', true)
@@ -54,6 +52,11 @@ class SignUpController extends Controller
             'password.string' => 'La contraseña debe ser una cadena de texto.',
         ];
 
+        if (config('w-auth.security.password.confirmation.active', true)) {
+            $rules['password'][] = ['confirmed'];
+            $messages['password.confirmed'] = 'La contraseña debe ser confirmada.';
+        }
+
         if (config('w-auth.security.password.minimal.active', true)) {
             $rules['password'][] = new PasswordMinimal;
         }
@@ -62,67 +65,63 @@ class SignUpController extends Controller
             $rules['password'][] = new PasswordMaximal;
         }
 
-        if (config('w-auth.security.password.require-uppercase.active', true)) {
+        if (config('w-auth.security.password.uppercase.active', true)) {
             $rules['password'][] = new PasswordUppercase;
         }
 
-        if (config('w-auth.security.password.require-lowercase.active', true)) {
+        if (config('w-auth.security.password.lowercase.active', true)) {
             $rules['password'][] = new PasswordLowercase;
         }
 
-        if (config('w-auth.security.password.require-number.active', true)) {
+        if (config('w-auth.security.password.number.active', true)) {
             $rules['password'][] = new PasswordNumber;
         }
 
-        if (config('w-auth.security.password.require-symbols.active', true)) {
+        if (config('w-auth.security.password.symbols.active', true)) {
             $rules['password'][] = new PasswordSymbol;
         }
 
         if (config('w-auth.options.sign-up.captcha', true)) {
             $rules['hashedcaptcha'] = ['required'];
-
             $messages['hashedcaptcha.required'] = 'El campo hashedcaptcha es obligatorio.';
 
             $rules = array_merge(
                 $rules,
                 collect(range(1, 6))
-                    ->mapWithKeys(fn ($i) => ["captcha-$i" => ['required', 'integer']])
+                    ->mapWithKeys(fn($i) => ["captcha-$i" => ['required', 'integer']])
                     ->toArray()
             );
 
             $messages = array_merge(
                 $messages,
                 collect(range(1, 6))
-                    ->mapWithKeys(fn ($i) => ["captcha-$i.required" => "El campo captcha-$i es obligatorio."])
+                    ->mapWithKeys(fn($i) => ["captcha-$i.required" => "El campo captcha-$i es obligatorio."])
                     ->toArray()
             );
         }
 
         if (config('w-auth.options.sign-up.terms', true)) {
             $rules['terms'] = ['required'];
-
             $messages['terms.required'] = 'El campo términos y condiciones es obligatorio.';
         }
 
         if (config('w-auth.options.sign-up.policy', true)) {
             $rules['policy'] = ['required'];
-
             $messages['policy.required'] = 'El campo política de privacidad es obligatorio.';
         }
 
         $validator = Validator::make($request->all(), $rules, $messages);
 
         if ($validator->fails()) {
-            dd([
-                'rules' => $rules,
-                'messages' => $messages,
-                'data' => $request->all(),
-                'errors' => $validator->errors(),
-            ]);
+            foreach ($validator->errors()->messages() as $error => $messages) {
+                session()->flash($error, $messages);
+                session()->flash('_flash',[
+                    'old' => $request->all(),
+                ]);
+            }
+            //dd(session()->all());
 
-            return view('w-auth::auth.sign-up', [
-                'emssages' => $validator->errors(),
-            ]);
+            return $this->create();
         }
 
         $data = [
@@ -138,7 +137,7 @@ class SignUpController extends Controller
 
         if (config('w-auth.options.sign-up.captcha')) {
             $code = collect(range(1, 6))
-                ->map(fn ($i) => $request->input("captcha-$i"))
+                ->map(fn($i) => $request->input("captcha-$i"))
                 ->implode('');
 
             if (Hash::check($code, $request->hashedcaptcha)) {

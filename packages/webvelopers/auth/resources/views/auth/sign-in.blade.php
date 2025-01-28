@@ -49,12 +49,19 @@
                             {{ __('sign-in.email') }}
                         </label>
                         <input
-                            type="email"
+                            type=@if(config('app.env', 'production' )==='production' ) "email" @else "text" @endif
                             name="email"
                             id="email"
+                            @if(old('email'))
+                            value="{{ old('email') }}"
+                            @else
+                            @if(config('app.env', 'production' ) !=='production' )
+                            value="{{ config('w-auth.test.sign-in.email', 'john.doe@email..com') }}"
+                            @endif
+                            @endif
                             placeholder="{{ __('sign-in.email.placeholder') }}"
-                            required="on"
-                            autocomplete="off"
+                            @if(config('app.env', 'production' )==='production' ) required="on" @endif
+                            @if(config('app.env', 'production' )==='production' ) autocomplete="off" @endif
                             class="form-input" />
                     </div>
                     {{-- Ends Form Input Email --}}
@@ -67,12 +74,19 @@
                             {{ __('sign-in.password') }}
                         </label>
                         <input
-                            type="password"
+                            type=@if(config('app.env', 'production' )==='production' ) "password" @else "text" @endif
                             name="password"
                             id="password"
+                            @if(old('password'))
+                            value="{{ old('password') }}"
+                            @else
+                            @if(config('app.env', 'production' ) !=='production' )
+                            value="{{ config('w-auth.test.sign-in.password', 'Password1234.') }}"
+                            @endif
+                            @endif
                             placeholder="••••••••••••"
-                            required="on"
-                            autocomplete="off"
+                            @if(config('app.env', 'production' )==='production' ) required="on" @endif
+                            @if(config('app.env', 'production' )==='production' ) autocomplete="off" @endif
                             class="form-input" />
                     </div>
                     {{-- Ends Form Input Password --}}
@@ -90,6 +104,13 @@
                                     type="checkbox"
                                     name="remember"
                                     id="remember"
+                                    @if(old('remember'))
+                                    @checked(old('remember'))
+                                    @else
+                                    @if(config('app.env', 'production' ) !=='production' )
+                                    value="{{ config('w-auth.test.sign-in.remember', 'remember') }}"
+                                    @endif
+                                    @endif
                                     aria-describedby="remember"
                                     class="remember-me-input" />
                             </div>

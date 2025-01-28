@@ -7,15 +7,13 @@ return [
         'sign-up' => true,
         'forget-password' => true,
         'verify-token' => true,
-
-        'api' => [
-            'captcha' => true,
-        ],
     ],
 
     'security' => [
-
         'password' => [
+            'confirmation' => [
+                'active' => true,
+            ],
 
             'minimal' => [
                 'active' => true,
@@ -41,14 +39,17 @@ return [
 
             'symbol' => [
                 'active' => true,
-                'value' => '|~\^_`<>{}[]()',
+                'value' => '/[|~\^_`<>{}[]();]+/',
             ],
+        ],
 
+        'captcha' => [
+            'active' => true,
+            'value' => 8,
         ],
     ],
 
     'options' => [
-
         'sign-in' => [
             'remember-me' => true,
             'forget-password' => true,
@@ -56,7 +57,7 @@ return [
         ],
 
         'sign-up' => [
-            'confirm-password' => true,
+            'password-confirmation' => true,
             'captcha' => true,
             'terms-and-conditions' => true,
             'privacy-policy' => true,
@@ -70,7 +71,6 @@ return [
     ],
 
     'routes' => [
-
         'home' => [
             'path' => '/',
             'index' => 'auth.home',
@@ -114,20 +114,29 @@ return [
             'path' => '/auth/privacy-policy',
             'index' => 'auth.privacy-policy',
         ],
-
-        'api' => [
-            'captcha' => [
-                'path' => '/auth/api/captcha',
-                'invoke' => 'auth.api.captcha',
-            ],
-        ],
     ],
 
     'assets' => [
-
         'img' => [
             'logo' => 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg',
         ],
+    ],
 
+    'test' => [
+        'sign-in' => [
+            'email' => 'john.due@email.com',
+            'password' => 'Password1234.',
+            'remember' => '1',
+        ],
+
+        'sign-up' => [
+            'name' => '',
+            'email' => '',
+            'password' => '',
+            'password-confirmation' => '',
+            'captcha' => null,
+            'terms' => '0',
+            'policy' => '0',
+        ],
     ],
 ];
