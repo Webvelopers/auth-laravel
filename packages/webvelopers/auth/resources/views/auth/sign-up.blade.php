@@ -3,9 +3,6 @@
 @section('title', __('Sign Up'))
 
 @section('content')
-@php
-//dd(session()->all());
-@endphp
 <section class="section-container">
     <div class="section-wrapper">
 
@@ -54,11 +51,11 @@
                     <div class="form-group">
                         <label
                             for="name"
-                            @if (session('name'))
+                            @if ($errors->has('name'))
                             class="form-label-error"
                             @else
                             class="form-label"
-                            @endif>
+                            @endif >
                             {{ __('sign-up.name') }}
                         </label>
                         <input

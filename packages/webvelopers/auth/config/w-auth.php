@@ -3,7 +3,7 @@
 return [
 
     'show' => [
-        'dark-mode' => false,
+        'dark-mode' => true,
         'sign-up' => true,
         'forget-password' => true,
         'verify-token' => true,
